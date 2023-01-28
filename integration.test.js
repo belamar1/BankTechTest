@@ -23,19 +23,20 @@ afterEach(() => {
 
 describe('integration test', () => {
   it('allows our client to deposit and withdraw money', () => {
-    account.deposit(10.0);
-    account.deposit(20.0);
-    account.withdraw(5.0);
-    account.withdraw(5.0);
-    account.withdraw(5.0);
-    account.printStatement();
-    expect(account.balance).toEqual(15.0);
-    expect(account.transactions).toEqual([
+    let amount = new TransactionsHistory();
+    amount.deposit(10.0);
+    amount.deposit(20.0);
+    amount.withdraw(5.0);
+    amount.withdraw(5.0);
+    amount.withdraw(5.0);
+    amount.printStatement();
+    expect(amount.balance).toEqual(15.0);
+    expect(amount.transactions).toEqual([
       {
         time: new Time().toLocaleTimeString('en-GB'),
         date: new Date().toLocaleDateString('en-GB'),
         type: 'deposit',
-        amount: 10.0,
+        sum: 10.0,
         balance: 10.0,
       },
       {

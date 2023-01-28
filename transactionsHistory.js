@@ -9,7 +9,10 @@ class TransactionsHistory {
     this.transactions = [];
     time = new Date().toLocaleTimeString('en-GB');
     date = new Date().toLocaleDateString('en-GB');
-    type = 'deposit' || 'withdrawal';
+    type = 'deposit';
+    balance = 0;
+    amount = 0;
+    transactions = [];
   }
   getTransactions() {
     return this.transactions;
