@@ -7,35 +7,40 @@ class TransactionsHistory {
   constructor(time, date, type, balance, amount, transactions) {
     this.balance = 0;
     this.transactions = [];
-    time = new Date().toLocaleString();
-    date = new Date().toLocaleString();
+    time = new Date().toLocaleTimeString('en-GB');
+    date = new Date().toLocaleDateString('en-GB');
     type = 'deposit' || 'withdrawal';
   }
-  addTransaction(transaction) {
-    this.transactions.push(transaction);
-    if (transaction.type === 'deposit') {
-      this.balance += transaction.amount;
-    }
-    if (transaction.type === 'withdrawal') {
-      this.balance -= transaction.amount;
-      if (this.balance < 0) {
-        throw new Error('Insufficient funds');
-      }
-      return this.balance;
-    }
-    return this.balance;
+  getTransactions() {
+    return this.transactions;
+  }
+
+  deposit(amount) {
+    this.balance += amount;
+    this.transactions.push({
+      time: new Date().toLocaleTimeString('en-GB'),
+      date: new Date().toLocaleDateString('en-GB'),
+      type: 'deposit',
+      amount: amount,
+      balance: this.balance,
+    });
+  }
+  withdraw(amount) {
+    this.balance -= amount;
+    this.transactions.push({
+      time: new Date().toLocaleTimeString('en-GB'),
+      date: new Date().toLocaleDateString('en-GB'),
+      type: 'withdrawal',
+      amount: amount,
+      balance: this.balance,
+    });
   }
 
   openAccount() {
     this.balance = 0;
     this.transactions.length = 0;
-    this.date = new Date().toLocaleString();
-  }
-  getEntries() {
-    return this.transactions;
-  }
-  getTransactions() {
-    return this.transactions;
+    this.date = new Date().toLocaleDateString('en-GB');
+    this.time = new Date().toLocaleTimeString('en-GB');
   }
 }
 

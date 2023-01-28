@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 'use strict';
-
+//need to add a test for withdraw
 const TransactionsHistory = require('./transactionsHistory');
 
 beforeEach(() => {
@@ -19,28 +19,22 @@ describe('TransactionsHistory ', () => {
   });
   it('has a method to return the array of transactions', () => {
     const transactionsHistory = new TransactionsHistory();
-    transactionsHistory.addTransaction('transaction');
+
     expect(transactionsHistory.getTransactions()).toEqual(['transaction']);
   });
-  it('debits the account when a withdrawal is made and credits the account when a deposit is made', () => {
+  it('debits the account when a withdrawal is made', () => {
     const transactionsHistory = new TransactionsHistory();
-    transactionsHistory.addTransaction('transaction');
+    transactionsHistory.deposit('transaction');
     expect(transactionsHistory.transactions).toEqual(['transaction']);
   });
   it('it has a method to return the balance', () => {
     const transactionsHistory = new TransactionsHistory();
-    transactionsHistory.addTransaction('transaction');
-    expect(transactionsHistory.transactions).toEqual(['transaction']);
+    expect(transactionsHistory.getBalance).toEqual(['transaction']);
   });
   it('rejects withdrawals that exceed the available balance', () => {
     const transactionsHistory = new TransactionsHistory();
     transactionsHistory.addTransaction('transaction');
-    expect(transactionsHistory.transactions).toEqual(['transaction']);
-  });
-  it('it has a method to return the date and time of the transaction', () => {
-    const transactionsHistory = new TransactionsHistory();
-    transactionsHistory.addTransaction('transaction');
-    expect(transactionsHistory.transactions).toEqual(['transaction']);
+    expect(transactionsHistory.withdraw).toEqual(['transaction']);
   });
   it('it has a method to return the type of transaction', () => {
     const transactionsHistory = new TransactionsHistory();

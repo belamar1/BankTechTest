@@ -5,7 +5,7 @@
 
 const Account = require('./account');
 const TransactionsHistory = require('./transactionsHistory');
-const Transaction = require('./transaction');
+const Transaction = require('./transactionsHistory');
 
 let account;
 let transactionsHistory;
