@@ -10,12 +10,14 @@ class Account {
    * @param {number} amount
    * @param {string} type
    * @param {string} date
+   * @param {string} time
    * @param {string} description
    * @param {number} balance
    */
   openAccount() {
     this.balance = 0;
-    this.date = new Date().toLocaleString();
+    this.date = new Date().toLocaleString('en-GB');
+    this.time = new Date().toLocaleTimeString('en-GB');
     this.transactions = [];
   }
 }

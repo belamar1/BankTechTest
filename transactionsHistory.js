@@ -13,6 +13,11 @@ class TransactionsHistory {
     balance = 0;
     amount = 0;
     transactions = [];
+    this.withdraw = this.withdraw.bind(this);
+    this.deposit = this.deposit.bind(this);
+    this.openAccount = this.openAccount.bind(this);
+    this.getBalance = this.getBalance.bind(this);
+    this.getTransactions = this.getTransactions.bind(this);
   }
   getTransactions() {
     return this.transactions;
@@ -33,7 +38,7 @@ class TransactionsHistory {
     this.transactions.push({
       time: new Date().toLocaleTimeString('en-GB'),
       date: new Date().toLocaleDateString('en-GB'),
-      type: 'withdrawal',
+      type: 'credit',
       amount: amount,
       balance: this.balance,
     });
