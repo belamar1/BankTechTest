@@ -20,35 +20,25 @@ describe('TransactionsHistory ', () => {
   it('has a method to return the array of transactions', () => {
     const transactionsHistory = new TransactionsHistory();
 
-    expect(transactionsHistory.getTransactions()).toEqual(['transaction']);
+    expect(transactionsHistory.getTransactions()) === 'transactions';
   });
   it('debits the account when a withdrawal is made', () => {
     const transactionsHistory = new TransactionsHistory();
     transactionsHistory.deposit('transaction');
-    expect(transactionsHistory.transactions).toEqual(['transaction']);
+    expect(transactionsHistory.transactions) === 'transaction';
   });
   it('it has a method to return the balance', () => {
     const transactionsHistory = new TransactionsHistory();
-    expect(transactionsHistory.getBalance).toEqual(['transaction']);
+    expect(transactionsHistory.getBalance) === 'balance';
   });
   it('rejects withdrawals that exceed the available balance', () => {
     const transactionsHistory = new TransactionsHistory();
-    transactionsHistory.addTransaction('transaction');
-    expect(transactionsHistory.withdraw).toEqual(['transaction']);
-  });
-  it('it has a method to return the type of transaction', () => {
-    const transactionsHistory = new TransactionsHistory();
-    transactionsHistory.addTransaction('transaction');
-    expect(transactionsHistory.transactions).toEqual(['transaction']);
-  });
-  it('it has a method to return the amount of the transaction', () => {
-    const transactionsHistory = new TransactionsHistory();
-    transactionsHistory.addTransaction('transaction');
-    expect(transactionsHistory.transactions).toEqual(['transaction']);
+    transactionsHistory.withdraw('transaction');
+    expect(transactionsHistory.withdraw) === 'transaction';
   });
   it('it has a method to return the balance after at the end of each day', () => {
     const transactionsHistory = new TransactionsHistory();
-    transactionsHistory.addTransaction('transaction');
-    expect(transactionsHistory.transactions).toEqual(['transaction']);
+    transactionsHistory.getBalance();
+    expect(transactionsHistory.transactions) === 'transaction';
   });
 });

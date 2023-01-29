@@ -29,7 +29,6 @@ describe('integration test', () => {
     amount.withdraw(5.0);
     amount.withdraw(5.0);
     amount.withdraw(5.0);
-    amount.printStatement();
     expect(amount.balance).toEqual(15.0);
     expect(amount.transactions).toEqual([
       {

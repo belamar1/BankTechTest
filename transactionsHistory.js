@@ -45,6 +45,10 @@ class TransactionsHistory {
     this.date = new Date().toLocaleDateString('en-GB');
     this.time = new Date().toLocaleTimeString('en-GB');
   }
+
+  getBalance() {
+    return this.balance;
+  }
 }
 
 module.exports = TransactionsHistory;
